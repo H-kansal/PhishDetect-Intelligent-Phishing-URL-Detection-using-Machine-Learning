@@ -1,0 +1,5 @@
+.env
+MINI_PROJECT.egg-info/
+mlflow.db
+mlruns/
+venv/

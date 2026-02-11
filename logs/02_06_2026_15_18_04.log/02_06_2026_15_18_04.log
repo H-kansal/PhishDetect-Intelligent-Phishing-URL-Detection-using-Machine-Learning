@@ -1,0 +1,4 @@
+[ 2026-02-06 15:18:04,070 ] 23 root - INFO - converting csv to json
+[ 2026-02-06 15:18:04,722 ] 27 root - INFO - converting csv to json completed
+[ 2026-02-06 15:18:04,722 ] 34 root - INFO - loading data to mongoDB
+[ 2026-02-06 15:18:20,084 ] 39 root - INFO - loading data to mongoDB completed

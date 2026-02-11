@@ -1,0 +1,2 @@
+[ 2026-02-07 14:09:49,466 ] 16 root - INFO - Train path: artifact\ingestionData\train_data.csv, Test path: artifact\ingestionData\test_data.csv
+[ 2026-02-07 14:09:49,926 ] 25 root - INFO - Data validation artifact: <src.entity.artifact_entity.DataValidationArtifact object at 0x000001E88B5CB940>
