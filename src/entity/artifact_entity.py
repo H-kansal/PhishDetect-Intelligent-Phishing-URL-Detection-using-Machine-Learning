@@ -6,6 +6,7 @@ class DataIngestionArtifact:
         self.train_data_path=train_data_path
         self.test_data_path=test_data_path
 
+
 class DataValidationArtifact:
     def __init__(self,status,valid_train_data_path,valid_test_data_path,drift_file_path):
         self.status=status

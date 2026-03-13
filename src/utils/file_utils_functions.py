@@ -12,6 +12,7 @@ from src.entity.artifact_entity import ClassficationMetrix
 
 def read_yaml_file(path:str):
     try:
+        print("file Path",path)
         with open(path,'rb') as read_yaml:
             return yaml.safe_load(read_yaml)
     except Exception as e:
@@ -52,6 +53,14 @@ def save_object(path:str,obj):
             pickle.dump(obj,file)
     except Exception as e:
         raise NetworkSecurityException(e,sys)
+
+def load_object(path:str):
+    try:
+        with open(path,'rb') as file:
+            return pickle.load(file)
+    except Exception as e:
+        raise NetworkSecurityException(e,sys)
+
 
 def Evaluate_models(models,X_train,y_train,X_test,y_test):
     try:

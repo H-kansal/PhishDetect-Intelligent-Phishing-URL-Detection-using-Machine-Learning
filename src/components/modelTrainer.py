@@ -16,7 +16,7 @@ import mlflow
 from urllib.parse import urlparse
 
 
-dagshub.init(repo_owner='H-kansal', repo_name='my-first-repo', mlflow=True)
+dagshub.init(repo_owner='H-kansal', repo_name='ML_Project', mlflow=True)
 
 
 class ModelTraining:
@@ -28,14 +28,12 @@ class ModelTraining:
     def track_mlflow(self, best_model, classificationmetric):
 
         # Set DagsHub tracking URI
-        mlflow.set_tracking_uri("https://dagshub.com/<username>/<repo_name>.mlflow")
+        mlflow.set_tracking_uri("https://dagshub.com/H-kansal/ML_Project.mlflow")
 
         with mlflow.start_run():
-
             mlflow.log_metric("f1_score", classificationmetric.f1_score)
-            mlflow.log_metric("precision", classificationmetric.precision_score)
+            mlflow.log_metric("precision", classificationmetric.precesion_score)
             mlflow.log_metric("recall_score", classificationmetric.recall_score)
-
             mlflow.sklearn.log_model(
                 sk_model=best_model,
                 name="model",
@@ -64,15 +62,15 @@ class ModelTraining:
         y_test_pred=best_model.predict(X_test)
 
         test_evaluation_metrix=Evaluation_matrix(y_train_pred,y_train)
-        self.track_mlflow(model_name,test_evaluation_metrix)
+        self.track_mlflow(best_model,test_evaluation_metrix)
 
 
         train_evaluation_metrix=Evaluation_matrix(y_test_pred,y_test)
-        self.track_mlflow(model_name,train_evaluation_metrix)
+        self.track_mlflow(best_model,train_evaluation_metrix)
 
         save_object(self.modelTrainingConfig.model_file_path,best_model)
 
-        return ModelTrainArtifact(model_name=model_name,model_file_path=self.modelTrainingConfig.model_file_path,     train_metrix=train_evaluation_metrix,test_metrix=test_evaluation_metrix)
+        return ModelTrainArtifact(model_name=model_name,model_file_path=self.modelTrainingConfig.model_file_path,train_metrix=train_evaluation_metrix,test_metrix=test_evaluation_metrix)
 
 
     def intialize_model_training(self):

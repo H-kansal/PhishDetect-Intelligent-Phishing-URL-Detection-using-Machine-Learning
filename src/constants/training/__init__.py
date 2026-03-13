@@ -24,3 +24,4 @@ IMPUTER_PARAMS={
 }
 TRAINING_DIR='model_training'
 MODEL_FILE_PATH='model.pkl'
+S3_BUCKET_NAME='ml-project-networksecurity'
