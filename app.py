@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.pipeline.trainingPipeline import Training
 from src.pipeline.batchPredictionPipeline import PredictionPipeline
 from src.exception import NetworkSecurityException
+from uvicorn import run as app_run
 import sys
 import os
 import pandas as pd
@@ -53,3 +54,6 @@ async def predict(request:Request,file:UploadFile=File(...)):
         )
     except Exception as e:
         raise NetworkSecurityException(e,sys)
+
+if __name__=="__main__":
+    app_run(app,"0.0.0.0",8000)
