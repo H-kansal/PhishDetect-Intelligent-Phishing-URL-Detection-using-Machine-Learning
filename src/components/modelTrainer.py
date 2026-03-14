@@ -16,8 +16,12 @@ import mlflow
 from urllib.parse import urlparse
 
 
-dagshub.init(repo_owner='H-kansal', repo_name='ML_Project', mlflow=True)
+# dagshub.init(repo_owner='H-kansal', repo_name='ML_Project', mlflow=True)
 
+
+os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/H-kansal/ML_Project.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"]="H-kansal"
+os.environ["MLFLOW_TRACKING_PASSWORD"]="483eac697f0f66d710d8a81411b7961ef7724e96"
 
 class ModelTraining:
     def __init__(self,tranformationArtifact):
@@ -29,7 +33,7 @@ class ModelTraining:
 
         # Set DagsHub tracking URI
         mlflow.set_tracking_uri("https://dagshub.com/H-kansal/ML_Project.mlflow")
-
+        
         with mlflow.start_run():
             mlflow.log_metric("f1_score", classificationmetric.f1_score)
             mlflow.log_metric("precision", classificationmetric.precesion_score)
