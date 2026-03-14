@@ -56,4 +56,4 @@ async def predict(request:Request,file:UploadFile=File(...)):
         raise NetworkSecurityException(e,sys)
 
 if __name__=="__main__":
-    app_run(app,"0.0.0.0",8000)
+    app_run(app,"0.0.0.0",8080)
